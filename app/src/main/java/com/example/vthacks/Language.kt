@@ -7,4 +7,9 @@ class Language(
     val teacher: String = "",
     val gpa: String = "",
     val wiki: String = "",
+
+    //these are for the chips
+    val mode: String = "",
+    val semester: String = "",
+    val extra: String = "",
 )

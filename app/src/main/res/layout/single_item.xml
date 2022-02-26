@@ -104,7 +104,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip4"
+            android:id="@+id/activity_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="152dp"
@@ -115,7 +115,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip7"
+            android:id="@+id/activity_semester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="152dp"
@@ -126,7 +126,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip8"
+            android:id="@+id/activity_extra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="152dp"
