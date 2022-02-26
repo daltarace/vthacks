@@ -28,22 +28,24 @@
             android:layout_width="220dp"
             android:layout_height="37dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-light"
             android:text="classname"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textColor="#070000"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/activity_classcode"
-            android:layout_width="60dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="67dp"
+            android:layout_height="79dp"
             android:layout_marginTop="20dp"
             android:text="classcode"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/activity_classname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,9 +56,11 @@
             android:layout_height="25dp"
             android:layout_marginTop="4dp"
             android:text="teacher"
+            android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="12sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_classname" />
 
@@ -66,8 +70,9 @@
             android:layout_height="24dp"
             android:layout_marginTop="4dp"
             android:text="gpa"
+            android:textAllCaps="true"
+            android:textColor="@color/primary"
             android:textSize="12sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.279"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,14 +80,14 @@
 
         <TextView
             android:id="@+id/activity_wiki"
-            android:layout_width="286dp"
-            android:layout_height="161dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="320dp"
+            android:layout_height="178dp"
+            android:layout_marginTop="144dp"
             android:text="wiki"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintHorizontal_bias="0.17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
 
@@ -90,11 +95,55 @@
             android:id="@+id/iv_language"
             android:layout_width="34dp"
             android:layout_height="39dp"
-            android:layout_marginLeft="352dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="340dp"
+            android:layout_marginTop="128dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_semester"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.336"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.629"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/activity_favoritebutton"
+            android:layout_width="52dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="32dp"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.743"
+            app:layout_constraintStart_toEndOf="@+id/activity_classname"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

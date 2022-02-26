@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity() {
     // add items to the list manually in our case
     private fun loadLanguage() {
         languageList = listOf(
-            Language("Computer Systems","CS 3214","Godmar Back", "3.3","All of it is in C. Process management with fork/join. "),
-            Language("Data Algo","CS 4104","Sally Hamouda", "3.1","Lot's of algorithms are taught.  "),
-            Language("Mobile","CS 3714","Andrey Esakia", "3.7","You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. "),
+            Language("Computer Systems","CS 3214","Godmar Back", "3.3","All of it is in C. Process management with fork/join. ", "In-Person", "Spring/Fall", "Coding Heavy"),
+            Language("Data Algo","CS 4104","Sally Hamouda", "3.1","Lot's of algorithms are taught.  ", "Hybrid", "Spring Only","Theory"),
+            Language("Mobile","CS 3714","Andrey Esakia", "3.7","You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. ","Online Synchonous", "Spring/Fall", "Project Based"),
 
             /*Language("Kotlin" , "Exp : 2 years"),
             Language("Python" , "Exp : 4 years"),
