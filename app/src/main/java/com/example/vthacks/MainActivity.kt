@@ -51,19 +51,22 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 rvAdapter.filter.filter(newText)
+                val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
+                // launching a new coroutine
+                GlobalScope.launch {
+                    val result = courseApi.getCourses("[\""+newText+"\"]", 202201)
+                    if (result != null)
+                    // Checking the results
+                        Log.d("ayush: ", result.body().toString())
+
+
+                }
                 return false
             }
 
         })
 
-        val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
-        // launching a new coroutine
-        GlobalScope.launch {
-            val result = courseApi.getCourses()
-            if (result != null)
-            // Checking the results
-                Log.d("ayush: ", result.body().toString())
-        }
+
 
     }
     // add items to the list manually in our case
