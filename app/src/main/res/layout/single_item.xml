@@ -2,50 +2,100 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_marginBottom="10dp"
     android:layout_marginStart="5dp"
     android:layout_marginEnd="5dp"
-    android:layout_height="110dp">
+    android:layout_height="400dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <!--Add image view, We will not set any data here.-->
+
+        <!--Text view for showing the language name-->
+
+        <!--Text View for showing the exp-->
+
+
+        <!--all below is old code, image, lang, experience-->
+
+        <TextView
+            android:id="@+id/activity_classname"
+            android:layout_width="220dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:text="classname"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_classcode"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:text="classcode"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/activity_classname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_teacher"
+            android:layout_width="221dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="4dp"
+            android:text="teacher"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_classname" />
+
+        <TextView
+            android:id="@+id/activity_gpa"
+            android:layout_width="76dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="4dp"
+            android:text="gpa"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.279"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
+
+        <TextView
+            android:id="@+id/activity_wiki"
+            android:layout_width="286dp"
+            android:layout_height="161dp"
+            android:layout_marginTop="48dp"
+            android:text="wiki"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
+
         <ImageView
             android:id="@+id/iv_language"
-            android:layout_width="80dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="34dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="352dp"
+            android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <!--Text view for showing the language name-->
-        <TextView
-            android:id="@+id/tv_lang_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="Language"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/iv_language"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!--Text View for showing the exp-->
-        <TextView
-            android:id="@+id/tv_exp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Exp : 3 years"
-            app:layout_constraintLeft_toLeftOf="@id/tv_lang_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_lang_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -31,8 +31,13 @@ class RvAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             with(languageList[position]){
-                binding.tvLangName.text = this.name
-                binding.tvExp.text = this.exp
+
+                //new below
+                binding.activityClassname.text = this.classname
+                binding.activityClasscode.text = this.classcode
+                binding.activityTeacher.text = this.teacher
+                binding.activityGpa.text = this.gpa
+                binding.activityWiki.text = this.wiki
             }
         }
     }

@@ -40,12 +40,16 @@ class MainActivity : AppCompatActivity() {
     // add items to the list manually in our case
     private fun loadLanguage() {
         languageList = listOf(
-            Language("Java" , "Exp : 3 years"),
-            Language("Kotlin" , "Exp : 2 years"),
+            Language("Computer Systems","CS 3214","Godmar Back", "3.3","All of it is in C. Process management with fork/join. "),
+            Language("Data Algo","CS 4104","Sally Hamouda", "3.1","Lot's of algorithms are taught.  "),
+            Language("Mobile","CS 3714","Andrey Esakia", "3.7","You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. "),
+
+
+            /*Language("Kotlin" , "Exp : 2 years"),
             Language("Python" , "Exp : 4 years"),
             Language("JavaScript" , "Exp : 6 years"),
             Language("PHP" , "Exp : 1 years"),
-            Language("CPP" , "Exp : 8 years"),
+            Language("CPP" , "Exp : 8 years"),*/
         )
     }
     // on destroy of view make
