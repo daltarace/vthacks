@@ -7,5 +7,5 @@ import retrofit2.http.Query
 interface CourseApi {
     // hardcoded query, may be changed -- idk how to do input query
     @GET("/beta/courses/search")
-    suspend fun getCourses(@Query("query") search:String?,@Query("term") term:Int) : Response<List<Course>>
+    suspend fun getCourses(@Query("query") search:String?,@Query("term") term:Int) : Response<ArrayList<Course>>
 }

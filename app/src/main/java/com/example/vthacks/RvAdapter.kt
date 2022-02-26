@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.SingleItemBinding
 import java.util.*
 import kotlin.collections.ArrayList
+import android.util.Log
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.create
 
 class RvAdapter(
     var languageList: List<Language>,
@@ -62,17 +66,17 @@ class RvAdapter(
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
-                if (charSearch.isEmpty()) {
-                    languageFilterList = ArrayList<Language>(languageList)
-                } else {
-                    val resultList = ArrayList<Language>()
-                    for (row in languageList) {
-                        if (row.classcode.lowercase(Locale.ROOT).contains(charSearch.lowercase(Locale.ROOT)) || row.classname.lowercase(Locale.ROOT).contains(charSearch.lowercase(Locale.ROOT))) {
-                            resultList.add(row)
+                val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
+                // launching a new coroutine
+                val resultList = ArrayList<Language>()
+                GlobalScope.launch {
+                    val result = courseApi.getCourses("[\""+charSearch+"\"]", 202201)
+                    if (result != null)
+                        for (course in result.body()!!){
+                            resultList.add(Language(course.name, course.subject + " " + course.courseNumber, course.instructor, "3.5",  "You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. ", "course.modality", "Spring/Fall", "Project Based"))
                         }
-                    }
-                    languageFilterList = resultList
                 }
+                languageFilterList = resultList
                 val filterResults = FilterResults()
                 filterResults.values = languageFilterList
                 return filterResults

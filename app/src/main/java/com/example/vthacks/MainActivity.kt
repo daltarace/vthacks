@@ -8,10 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.ActivityMainBinding
-import android.util.Log
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
     // view binding for the activity
@@ -51,16 +47,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 rvAdapter.filter.filter(newText)
-                val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
-                // launching a new coroutine
-                GlobalScope.launch {
-                    val result = courseApi.getCourses("[\""+newText+"\"]", 202201)
-                    if (result != null)
-                    // Checking the results
-                        Log.d("ayush: ", result.body().toString())
 
-
-                }
                 return false
             }
 

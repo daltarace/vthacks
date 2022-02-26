@@ -4,6 +4,7 @@ data class Course (
     val subject: String,
     val capacity: Int,
     val modality: String,
+    val courseNumber: String,
     val credits: Int,
     val term:Int,
     val name : String,
