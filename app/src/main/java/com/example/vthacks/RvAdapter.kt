@@ -1,9 +1,11 @@
 package com.example.vthacks
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.SingleItemBinding
 import java.util.*
@@ -12,6 +14,8 @@ import kotlin.collections.ArrayList
 class RvAdapter(
     var languageList: List<Language>,
 ) : RecyclerView.Adapter<RvAdapter.ViewHolder>(), Filterable {
+
+    var favoriteList: MutableList<Language> = mutableListOf<Language>()
 
     var languageFilterList = ArrayList<Language>()
     // create an inner class with name ViewHolder
@@ -49,6 +53,20 @@ class RvAdapter(
                 binding.activityMode.text = this.mode
                 binding.activitySemester.text = this.semester
                 binding.activityExtra.text = this.extra
+
+                binding.activityFavoritebutton.setOnClickListener{
+                    if(this.isfav === false){
+                        this.isfav = true
+                        favoriteList.add(this)
+                        Log.d("fav", favoriteList.toString())
+                    }
+                    else {
+                        this.isfav = false;
+                        favoriteList.remove(this)
+                        Log.d("fav", favoriteList.toString())
+                    }
+                }
+
             }
         }
     }
@@ -63,7 +81,8 @@ class RvAdapter(
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-                    languageFilterList = ArrayList<Language>(languageList)
+                    languageFilterList =
+                        favoriteList as ArrayList<Language>//ArrayList<Language>(languageList)
                 } else {
                     val resultList = ArrayList<Language>()
                     for (row in languageList) {

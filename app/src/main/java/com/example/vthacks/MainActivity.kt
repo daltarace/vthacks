@@ -4,6 +4,7 @@ import android.R
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         // attach adapter to the recycler view
         binding.rvList.adapter = rvAdapter
 
+        binding.allfavoritebutton.setOnClickListener {
+            Toast.makeText(this@MainActivity, rvAdapter.favoriteList.toString(), Toast.LENGTH_SHORT).show()
+        }
         binding.searchView2.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false

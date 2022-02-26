@@ -12,4 +12,7 @@ class Language(
     val mode: String = "",
     val semester: String = "",
     val extra: String = "",
+
+    //if its favorited or not
+    var isfav: Boolean = false
 )
