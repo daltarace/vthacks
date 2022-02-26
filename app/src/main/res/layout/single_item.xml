@@ -29,7 +29,7 @@
             android:layout_height="37dp"
             android:layout_marginTop="20dp"
             android:text="classname"
-            android:textSize="15sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +37,15 @@
 
         <TextView
             android:id="@+id/activity_classcode"
-            android:layout_width="60dp"
-            android:layout_height="43dp"
+            android:layout_width="67dp"
+            android:layout_height="79dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
             android:text="classcode"
-            android:textSize="12sp"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/activity_classname"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,18 +57,22 @@
             android:layout_height="25dp"
             android:layout_marginTop="4dp"
             android:text="teacher"
+            android:textAllCaps="true"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_classname" />
 
         <TextView
             android:id="@+id/activity_gpa"
             android:layout_width="76dp"
+            android:textColor="@color/primary"
             android:layout_height="24dp"
             android:layout_marginTop="4dp"
             android:text="gpa"
+            android:textAllCaps="true"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,14 +82,13 @@
 
         <TextView
             android:id="@+id/activity_wiki"
-            android:layout_width="286dp"
-            android:layout_height="161dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="320dp"
+            android:layout_height="178dp"
+            android:layout_marginTop="152dp"
             android:text="wiki"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.568"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
 
@@ -95,6 +101,39 @@
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.085"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.376"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="152dp"
+            android:text="chiptext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.681"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
