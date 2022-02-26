@@ -7,11 +7,11 @@
     android:layout_marginBottom="10dp"
     android:layout_marginStart="5dp"
     android:layout_marginEnd="5dp"
-    android:layout_height="400dp">
+    android:layout_height="450dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="508dp">
 
 
         <!--Add image view, We will not set any data here.-->
@@ -29,6 +29,8 @@
             android:layout_height="37dp"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-light"
+            android:lineSpacingExtra="0sp"
+            android:lineSpacingMultiplier="0.5"
             android:text="classname"
             android:textColor="#070000"
             android:textSize="24sp"
@@ -39,7 +41,8 @@
         <TextView
             android:id="@+id/activity_classcode"
             android:layout_width="67dp"
-            android:layout_height="79dp"
+            android:layout_height="88dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="classcode"
             android:textAlignment="center"
@@ -47,6 +50,7 @@
             android:textColor="@color/primary"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/activity_classname"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +62,7 @@
             android:text="teacher"
             android:textAllCaps="true"
             android:textColor="#000000"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,11 +72,10 @@
             android:id="@+id/activity_gpa"
             android:layout_width="76dp"
             android:layout_height="24dp"
-            android:layout_marginTop="4dp"
             android:text="gpa"
             android:textAllCaps="true"
             android:textColor="@color/primary"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.279"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,71 +83,93 @@
 
         <TextView
             android:id="@+id/activity_wiki"
-            android:layout_width="320dp"
-            android:layout_height="178dp"
-            android:layout_marginTop="144dp"
+            android:layout_width="360dp"
+            android:layout_height="171dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="120dp"
+            android:background="#009986CA"
             android:text="wiki"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
 
-        <ImageView
-            android:id="@+id/iv_language"
-            android:layout_width="34dp"
-            android:layout_height="39dp"
-            android:layout_marginLeft="340dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="128dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/activity_semester"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:text="chiptext"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.336"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/activity_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:text="chiptext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.051"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/activity_extra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="chiptext2"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/activity_semester"
+                app:layout_constraintTop_toTopOf="@+id/activity_semester"
+                app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/activity_extra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:text="chiptext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.629"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/activity_semester"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="chiptext1"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/activity_mode"
+                app:layout_constraintTop_toTopOf="@+id/activity_mode"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/activity_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="chiptext2"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.305" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/activity_favoritebutton"
             android:layout_width="52dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="32dp"
-            android:text="Button"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.743"
+            app:layout_constraintHorizontal_bias="0.589"
             app:layout_constraintStart_toEndOf="@+id/activity_classname"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="B" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Display Thread"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_wiki" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
