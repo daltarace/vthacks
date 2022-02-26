@@ -56,10 +56,10 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
+        val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
         // launching a new coroutine
         GlobalScope.launch {
-            val result = quotesApi.getQuotes()
+            val result = courseApi.getCourses()
             if (result != null)
             // Checking the results
                 Log.d("ayush: ", result.body().toString())

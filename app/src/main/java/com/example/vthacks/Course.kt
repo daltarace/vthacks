@@ -9,5 +9,7 @@ data class Course (
     val name : String,
     val instructor: String,
     val exam: String,
-//    val meetings: List<Meeting>:
+    val crn: Int,
+    val type: String
+    // meetings are ignored
 )

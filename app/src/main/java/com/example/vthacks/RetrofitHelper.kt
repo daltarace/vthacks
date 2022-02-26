@@ -5,7 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    val baseUrl = "https://quotable.io/"
+    // pScheduler api
+    val baseUrl = "https://fdnvrxrba7.execute-api.us-east-1.amazonaws.com/"
 
     fun getInstance(): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
