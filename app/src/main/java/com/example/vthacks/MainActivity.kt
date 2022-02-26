@@ -47,10 +47,14 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 rvAdapter.filter.filter(newText)
+
                 return false
             }
 
         })
+
+
+
     }
     // add items to the list manually in our case
     private fun loadLanguage() {
