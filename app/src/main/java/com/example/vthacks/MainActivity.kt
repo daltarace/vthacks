@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.ActivityMainBinding
+import android.util.Log
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
     // view binding for the activity
@@ -51,6 +55,16 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
+        // launching a new coroutine
+        GlobalScope.launch {
+            val result = quotesApi.getQuotes()
+            if (result != null)
+            // Checking the results
+                Log.d("ayush: ", result.body().toString())
+        }
+
     }
     // add items to the list manually in our case
     private fun loadLanguage() {
