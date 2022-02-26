@@ -1,7 +1,10 @@
 package com.example.vthacks
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.ActivityMainBinding
@@ -36,6 +39,18 @@ class MainActivity : AppCompatActivity() {
 
         // attach adapter to the recycler view
         binding.rvList.adapter = rvAdapter
+
+        binding.searchView2.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                rvAdapter.filter.filter(newText)
+                return false
+            }
+
+        })
     }
     // add items to the list manually in our case
     private fun loadLanguage() {
@@ -44,13 +59,15 @@ class MainActivity : AppCompatActivity() {
             Language("Data Algo","CS 4104","Sally Hamouda", "3.1","Lot's of algorithms are taught.  "),
             Language("Mobile","CS 3714","Andrey Esakia", "3.7","You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. "),
 
-
             /*Language("Kotlin" , "Exp : 2 years"),
             Language("Python" , "Exp : 4 years"),
             Language("JavaScript" , "Exp : 6 years"),
             Language("PHP" , "Exp : 1 years"),
             Language("CPP" , "Exp : 8 years"),*/
         )
+
+
+
     }
     // on destroy of view make
     // the binding reference to null
