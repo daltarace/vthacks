@@ -38,6 +38,9 @@ class RvAdapter(
                 binding.activityTeacher.text = this.teacher
                 binding.activityGpa.text = this.gpa
                 binding.activityWiki.text = this.wiki
+                binding.activityMode.text = this.mode
+                binding.activitySemester.text = this.semester
+                binding.activityExtra.text = this.extra
             }
         }
     }
