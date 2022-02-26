@@ -152,14 +152,15 @@
             android:id="@+id/activity_favoritebutton"
             android:layout_width="52dp"
             android:layout_height="48dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
+            android:text="B"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.589"
             app:layout_constraintStart_toEndOf="@+id/activity_classname"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="B" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <Button
             android:id="@+id/button2"
