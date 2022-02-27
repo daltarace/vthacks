@@ -137,10 +137,10 @@
 
         <Button
             android:id="@+id/activity_favoritebutton"
-            android:layout_width="52dp"
+            android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_marginTop="32dp"
-            android:text="Button"
+            android:background="@drawable/ic_heart_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.743"
             app:layout_constraintStart_toEndOf="@+id/activity_classname"
