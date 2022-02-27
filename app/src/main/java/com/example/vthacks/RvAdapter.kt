@@ -104,7 +104,7 @@ class RvAdapter(
                     val result = courseApi.getCourses("[\""+charSearch+"\"]", 202201)
                     if (result != null)
                         for (course in result.body()!!){
-                            resultList.add(Language(course.name, course.subject + " " + course.courseNumber, course.instructor, "3.5",  "You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. ", "course.modality", "Spring/Fall", "Project Based"))
+                            resultList.add(Language(course.name, course.subject + " " + course.courseNumber, course.instructor, "3.5",  "You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. ", course.modality?.toString() ?: "Unknown", "Spring/Fall", "Project Based"))
                         }
                 }
                 languageFilterList = resultList
