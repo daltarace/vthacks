@@ -7,8 +7,10 @@
     android:background="#F5F8FD"
     tools:context=".MainActivity">
 
+
     <!--Add recycler view to main activity-->
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rv_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -20,7 +22,9 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView2"
         tools:listitem="@layout/single_item" />
 
+
     <SearchView
+        android:visibility="gone"
         android:id="@+id/searchView2"
         android:layout_width="339dp"
         android:layout_height="50dp"
@@ -31,7 +35,31 @@
         app:layout_constraintTop_toTopOf="parent" >
     </SearchView>
 
+    <TextView
+        android:id="@+id/startingtext"
+        android:layout_width="229dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="244dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Enter Course Name"
+        android:textColor="#070000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/firstsearchView"
+        android:layout_width="339dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:queryHint="CS 3214, Music Appreciation, COMM..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startingtext"></SearchView>
+
     <Button
+        android:visibility="gone"
         android:id="@+id/allfavoritebutton"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -43,5 +71,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
