@@ -50,7 +50,7 @@ class RvAdapter(
                 binding.activityClassname.text = this.classname
                 binding.activityClasscode.text = this.classcode
                 binding.activityTeacher.text = this.teacher
-                binding.activityGpa.text = this.gpa
+                binding.activityGpa.text = "Average Gpa: " + this.gpa
                 binding.activityWiki.text = this.wiki
                 binding.activityMode.text = this.mode
                 binding.activitySemester.text = this.semester
