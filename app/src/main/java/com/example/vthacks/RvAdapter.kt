@@ -110,13 +110,13 @@ class RvAdapter(
                             if (courseDesc != null) {
                             resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
                                 course.instructor, ((26..40).random().toDouble()/10).toString(),
-                                courseDesc, "course.modality", "Spring/Fall", "Project Based"))
+                                courseDesc, course.modality?.toString() ?: "Unknown", "Spring/Fall", "Project Based"))
                             }
                             else
                             {
                                 resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
                                     course.instructor, ((26..40).random().toDouble()/10).toString(),
-                                    "Content not found", "course.modality", "Spring/Fall", "Project Based"))
+                                    "Content not found", course.modality?.toString() ?: "Unknown", "Spring/Fall", "Project Based"))
                             }
                         }
                 }
