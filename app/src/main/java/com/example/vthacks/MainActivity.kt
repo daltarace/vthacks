@@ -1,18 +1,22 @@
 package com.example.vthacks
 
-import android.R
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.ActivityMainBinding
+import java.io.*
+
 
 class MainActivity : AppCompatActivity() {
     // view binding for the activity
     private var _binding : ActivityMainBinding? = null
     private val binding get() = _binding!!
+    companion object{
+        var courseDescMap : HashMap<String, String> = HashMap<String, String> ()
+    }
 
     // create reference to the adapter and the list
     // in the list pass the model of Language
@@ -23,6 +27,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("Chautest", "hi")
+
+        val minput = InputStreamReader(assets.open("sample_data.csv"))
+        val reader = BufferedReader(minput)
+        var line: String
+        reader.forEachLine {
+            val rowByComma = "$it".split(",").toTypedArray()
+            val rowByQuotation = "$it".split("\"").toTypedArray()
+            if(rowByQuotation.size >=2){
+                courseDescMap.put(rowByComma[1] + rowByComma[3], rowByQuotation[1])
+            }
+            else
+            {
+                courseDescMap.put(rowByComma[1] + rowByComma[3], "Description Not Found")
+            }
+
+        }
+
 
         // load data to language list
         loadLanguage()
