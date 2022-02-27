@@ -1,17 +1,19 @@
 package com.example.vthacks
 
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vthacks.databinding.SingleItemBinding
-import java.util.*
-import kotlin.collections.ArrayList
-import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.create
+import java.util.*
+
 
 class RvAdapter(
     var languageList: List<Language>,
@@ -51,7 +53,28 @@ class RvAdapter(
                 binding.activityClasscode.text = this.classcode
                 binding.activityTeacher.text = this.teacher
                 binding.activityGpa.text = "Average Gpa: " + this.gpa
-                binding.activityWiki.text = this.wiki
+//                binding.activityWiki.text = this.wiki
+                binding.activityWiki.setText(this.wiki)
+                binding.activityWiki.isFocusable = false
+//                binding.activityWiki.isEnabled = true
+                binding.activityWiki.setOnLongClickListener {
+                    binding.activityWiki.isFocusableInTouchMode = true
+                    return@setOnLongClickListener true
+                }
+
+                binding.activityWiki.addTextChangedListener(object : TextWatcher {
+                    override fun afterTextChanged(s: Editable?) {
+                    }
+
+                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                        val teacher = binding.activityTeacher.text.split(" ")
+                        val teacherLast = teacher[teacher.size-1]
+                        MainActivity.courseDescMap.set(binding.activityClasscode.text as String +" "+teacherLast,s.toString())
+//                        Toast.makeText(application, classCode+activityTeacher, Toast.LENGTH_LONG)
+//                        Log.d("Chautestedit", binding.activityClasscode.text as String + " " +teacherLast)
+                    }
+                })
                 binding.activityMode.text = this.mode
                 binding.activitySemester.text = this.semester
                 binding.activityExtra.text = this.extra
@@ -75,7 +98,7 @@ class RvAdapter(
                         this.isfav = false;
                         favoriteList.remove(this)
                         binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
-                        Log.d("fav", "from adapter " +favoriteList.toString())
+//                        Log.d("fav", "from adapter " +favoriteList.toString())
                     }
                 }
             }
@@ -86,6 +109,7 @@ class RvAdapter(
     override fun getItemCount(): Int {
         return languageFilterList.size
     }
+
 
     override fun getFilter(): Filter {
         return object : Filter() {
@@ -104,7 +128,10 @@ class RvAdapter(
                     val result = courseApi.getCourses("[\""+charSearch+"\"]", 202201)
                     if (result != null)
                         for (course in result.body()!!){
-                            val courseNameProf:String = course.subject + " " + course.courseNumber + course.instructor
+                            val activityTeacher = course.instructor.split(" ")
+                            val activityTeacherLast = activityTeacher[activityTeacher.size-1]
+                            val courseNameProf:String = course.subject + " " + course.courseNumber +" "+ activityTeacherLast
+//                            Log.d("Chautestnameprof",courseNameProf)
                             val courseDesc:String? = MainActivity.courseDescMap.get(courseNameProf)
 
                             if (courseDesc != null) {
