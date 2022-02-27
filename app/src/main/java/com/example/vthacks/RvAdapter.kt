@@ -55,17 +55,27 @@ class RvAdapter(
                 binding.activityMode.text = this.mode
                 binding.activitySemester.text = this.semester
                 binding.activityExtra.text = this.extra
+                if(this.isfav)
+                {
+                    binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                }
+                else
+                {
+                    binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                }
 
                 binding.activityFavoritebutton.setOnClickListener{
-                    if(this.isfav === false){
+                    if(this.isfav == false){
                         this.isfav = true
                         favoriteList.add(this)
-                        Log.d("fav", favoriteList.toString())
+                        binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                        Log.d("fav", "from adapter " +favoriteList.toString())
                     }
                     else {
                         this.isfav = false;
                         favoriteList.remove(this)
-                        Log.d("fav", favoriteList.toString())
+                        binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                        Log.d("fav", "from adapter " +favoriteList.toString())
                     }
                 }
             }

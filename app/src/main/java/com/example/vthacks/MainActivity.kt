@@ -1,6 +1,7 @@
 package com.example.vthacks
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Toast
@@ -47,6 +48,14 @@ class MainActivity : AppCompatActivity() {
             //Toast.makeText(this@MainActivity, rvAdapter.favoriteList.toString(), Toast.LENGTH_SHORT).show()
             //rvAdapter.languageFilterList = rvAdapter.favoriteList as ArrayList<Language>
             isFavOn = !isFavOn
+            if(isFavOn) {
+                binding.allfavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                Log.d("fav", "from main " +rvAdapter.favoriteList.toString())
+            }
+            else if(!isFavOn){
+                binding.allfavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                Log.d("fav", "from main " +rvAdapter.favoriteList.toString())
+            }
             if(rvAdapter.favoriteList.size != 0 && rvAdapter.favoriteList.size != null) { //don't crash if its null
                 rvAdapter.filter.filter(rvAdapter.favoriteList[0].classname)
             }
