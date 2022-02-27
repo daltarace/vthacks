@@ -75,13 +75,17 @@ class RvAdapter(
                         for (course in result.body()!!){
                             val courseNameProf:String = course.subject + " " + course.courseNumber + course.instructor
                             val courseDesc:String? = MainActivity.courseDescMap.get(courseNameProf)
-                            var desc:String;
 
                             if (courseDesc != null) {
-                                Log.d("Chautest1", courseDesc)
                             resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
                                 course.instructor, ((26..40).random().toDouble()/10).toString(),
                                 courseDesc, "course.modality", "Spring/Fall", "Project Based"))
+                            }
+                            else
+                            {
+                                resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
+                                    course.instructor, ((26..40).random().toDouble()/10).toString(),
+                                    "Content not found", "course.modality", "Spring/Fall", "Project Based"))
                             }
 
                         }
