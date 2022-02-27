@@ -20,10 +20,10 @@ We parsed information from the [Timetable of Classes](https://apps.es.vt.edu/ssb
 We also built a functionality where all favorited classes show up as a separate list that the user can refer back to. And, to incorporate the student perspective, we had tags specific to each class.
 
 ## Challenges we ran into
-Integrating web scraped data with our app
-For beginners in our group: learning Android app architecture and utilizing Android Studio features
-Predicting how long implementing a feature will take 
-Needing to limit our original idea due to time limitations 
+» integrating web scraped data with our app
+» learning Android application architecture and utilizing Android Studio features
+» predicting the amount of time implementing a feature will take 
+» needing to prioritize features from our original idea due to time limitations 
 
 ## Accomplishments that we're proud of
 We were able to systematically delegate duties and create a functional app within 24 hours. If one of us was struggling, we all worked to alleviate their burden and help each other out. 
@@ -40,7 +40,7 @@ We would like to implement a discussion thread functionality, where students can
 
 
 ## Developers
-[Chau Le](https://www.linkedin.com/in/chau-le-80b713192/)
-[Ria Vadhavkar](https://www.linkedin.com/in/riavadhavkar/)
-[Dana Altarace](https://www.linkedin.com/in/dana-altarace-20b498196/)
+[Chau Le](https://www.linkedin.com/in/chau-le-80b713192/), 
+[Ria Vadhavkar](https://www.linkedin.com/in/riavadhavkar/), 
+[Dana Altarace](https://www.linkedin.com/in/dana-altarace-20b498196/), 
 [Aditi Diwan](https://www.linkedin.com/in/aditi-diwan/)
