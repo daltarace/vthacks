@@ -38,14 +38,16 @@ class MainActivity : AppCompatActivity() {
         reader.forEachLine {
             val rowByComma = "$it".split(",").toTypedArray()
             val rowByQuotation = "$it".split("\"").toTypedArray()
+            val profName = rowByComma[3].split(" ")
+            val profNameLast = profName[profName.size - 1]
             if(rowByQuotation.size >=2){
-                courseDescMap.put(rowByComma[1] + rowByComma[3], rowByQuotation[1])
+                courseDescMap.put(rowByComma[1] + " "+ profNameLast, rowByQuotation[1])
             }
             else
             {
-                courseDescMap.put(rowByComma[1] + rowByComma[3], "Description Not Found")
+                courseDescMap.put(rowByComma[1] + " "+ profNameLast, "Description Not Found")
             }
-
+//            Log.d("Chautestdesc", rowByComma[1] + " "+ profNameLast)
         }
 
 
