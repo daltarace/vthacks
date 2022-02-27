@@ -116,6 +116,17 @@ class RvAdapter(
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 if(MainActivity.isFavOn){
                     languageFilterList = favoriteList as ArrayList<Language>
+
+                    for (course in languageFilterList){
+                         val activityTeacher = course.teacher.split(" ")
+                        val activityTeacherLast = activityTeacher[activityTeacher.size-1]
+                        val courseNameProf:String = course.classcode +" "+ activityTeacherLast
+//                            Log.d("Chautestnameprof",courseNameProf)
+                        val courseDesc:String? = MainActivity.courseDescMap.get(courseNameProf)
+                        if (courseDesc != null) {
+                            course.wiki = courseDesc
+                        }
+                    }
                     val filterResults = FilterResults()
                     filterResults.values = languageFilterList //here
                     return filterResults

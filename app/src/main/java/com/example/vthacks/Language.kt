@@ -6,7 +6,7 @@ class Language(
     val classcode: String = "", //subject + courseNumber
     val teacher: String = "", //instructor
     val gpa: String = "",
-    val wiki: String = "",
+    var wiki: String = "",
 
     //these are for the chips
     val mode: String = "",
