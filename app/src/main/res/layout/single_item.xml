@@ -79,7 +79,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_teacher" />
 
-        <TextView
+        <EditText
             android:id="@+id/activity_wiki"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,6 +94,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/linearLayout"

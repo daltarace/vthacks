@@ -51,8 +51,11 @@ class RvAdapter(
                 binding.activityClasscode.text = this.classcode
                 binding.activityTeacher.text = this.teacher
                 binding.activityGpa.text = "Average Gpa: " + this.gpa
-                binding.activityWiki.text = this.wiki
+//                binding.activityWiki.text = this.wiki
+                binding.activityWiki.setText(this.wiki)
+//                binding.activityWiki.isFocusable = false
                 binding.activityMode.text = this.mode
+//                binding.activityWiki.setOnClick
                 binding.activitySemester.text = this.semester
                 binding.activityExtra.text = this.extra
                 if(this.isfav)
@@ -86,6 +89,7 @@ class RvAdapter(
     override fun getItemCount(): Int {
         return languageFilterList.size
     }
+
 
     override fun getFilter(): Filter {
         return object : Filter() {
