@@ -2,6 +2,7 @@ package com.example.vthacks
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Toast
@@ -64,6 +65,23 @@ class MainActivity : AppCompatActivity() {
 
         // attach adapter to the recycler view
         binding.rvList.adapter = rvAdapter
+
+        binding.firstsearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.firstsearchView.setVisibility(View.GONE)
+                binding.startingtext.setVisibility(View.GONE)
+                binding.allfavoritebutton.setVisibility(View.VISIBLE)
+                binding.rvList.setVisibility(View.VISIBLE)
+                binding.searchView2.setVisibility(View.VISIBLE)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                rvAdapter.filter.filter(newText)
+                return false
+            }
+
+        })
 
         binding.allfavoritebutton.setOnClickListener {
             //Toast.makeText(this@MainActivity, rvAdapter.favoriteList.toString(), Toast.LENGTH_SHORT).show()
