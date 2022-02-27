@@ -1,9 +1,9 @@
 package com.example.vthacks
 
-import android.R
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
     // view binding for the activity
     private var _binding : ActivityMainBinding? = null
     private val binding get() = _binding!!
+    companion object {
+        var isFavOn = false
+    }
 
     // create reference to the adapter and the list
     // in the list pass the model of Language
@@ -39,6 +42,16 @@ class MainActivity : AppCompatActivity() {
 
         // attach adapter to the recycler view
         binding.rvList.adapter = rvAdapter
+
+        binding.allfavoritebutton.setOnClickListener {
+            //Toast.makeText(this@MainActivity, rvAdapter.favoriteList.toString(), Toast.LENGTH_SHORT).show()
+            //rvAdapter.languageFilterList = rvAdapter.favoriteList as ArrayList<Language>
+            isFavOn = !isFavOn
+            if(rvAdapter.favoriteList.size != 0 && rvAdapter.favoriteList.size != null) { //don't crash if its null
+                rvAdapter.filter.filter(rvAdapter.favoriteList[0].classname)
+            }
+            //rvAdapter.filter.filter(rvAdapter.favoriteList[1].classname)
+        }
 
         binding.searchView2.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
