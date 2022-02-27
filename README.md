@@ -20,9 +20,9 @@ We parsed information from the [Timetable of Classes](https://apps.es.vt.edu/ssb
 We also built a functionality where all favorited classes show up as a separate list that the user can refer back to. And, to incorporate the student perspective, we had tags specific to each class.
 
 ## Challenges we ran into
-» integrating web scraped data with our app
-» learning Android application architecture and utilizing Android Studio features
-» predicting the amount of time implementing a feature will take 
+» integrating web scraped data with our app <br/>
+» learning Android application architecture and utilizing Android Studio features <br/>
+» predicting the amount of time implementing a feature will take <br/>
 » needing to prioritize features from our original idea due to time limitations 
 
 ## Accomplishments that we're proud of
