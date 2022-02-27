@@ -104,7 +104,20 @@ class RvAdapter(
                     val result = courseApi.getCourses("[\""+charSearch+"\"]", 202201)
                     if (result != null)
                         for (course in result.body()!!){
-                            resultList.add(Language(course.name, course.subject + " " + course.courseNumber, course.instructor, "3.5",  "You learn how to program mobile apps in Java and Kotlin. Assignments are usually project based with a few quizzes. No final exam or midterm. ", course.modality?.toString() ?: "Unknown", "Spring/Fall", "Project Based"))
+                            val courseNameProf:String = course.subject + " " + course.courseNumber + course.instructor
+                            val courseDesc:String? = MainActivity.courseDescMap.get(courseNameProf)
+
+                            if (courseDesc != null) {
+                            resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
+                                course.instructor, ((26..40).random().toDouble()/10).toString(),
+                                courseDesc, "course.modality", "Spring/Fall", "Project Based"))
+                            }
+                            else
+                            {
+                                resultList.add(Language(course.name, course.subject + " " + course.courseNumber,
+                                    course.instructor, ((26..40).random().toDouble()/10).toString(),
+                                    "Content not found", "course.modality", "Spring/Fall", "Project Based"))
+                            }
                         }
                 }
                 languageFilterList = resultList

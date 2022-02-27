@@ -58,4 +58,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+    implementation 'com.opencsv:opencsv:4.6'
 }
