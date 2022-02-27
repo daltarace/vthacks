@@ -2,7 +2,9 @@ package com.example.vthacks
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     companion object{
         var courseDescMap : HashMap<String, String> = HashMap<String, String> ()
+        var isFavOn = false
     }
 
     // create reference to the adapter and the list
@@ -61,6 +64,29 @@ class MainActivity : AppCompatActivity() {
 
         // attach adapter to the recycler view
         binding.rvList.adapter = rvAdapter
+
+        binding.allfavoritebutton.setOnClickListener {
+            //Toast.makeText(this@MainActivity, rvAdapter.favoriteList.toString(), Toast.LENGTH_SHORT).show()
+            //rvAdapter.languageFilterList = rvAdapter.favoriteList as ArrayList<Language>
+            isFavOn = !isFavOn
+            if(isFavOn) {
+                binding.allfavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                Log.d("fav", "from main " +rvAdapter.favoriteList.toString())
+            }
+            else if(!isFavOn){
+                binding.allfavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                Log.d("fav", "from main " +rvAdapter.favoriteList.toString())
+            }
+            if(rvAdapter.favoriteList.size == 0 ) { //don't crash if its null
+                rvAdapter.filter.filter("")
+            }
+            else
+            {
+                rvAdapter.filter.filter(rvAdapter.favoriteList[0].classname)
+
+            }
+            //rvAdapter.filter.filter(rvAdapter.favoriteList[1].classname)
+        }
 
         binding.searchView2.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {

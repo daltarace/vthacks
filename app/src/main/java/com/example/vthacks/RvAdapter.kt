@@ -17,6 +17,8 @@ class RvAdapter(
     var languageList: List<Language>,
 ) : RecyclerView.Adapter<RvAdapter.ViewHolder>(), Filterable {
 
+    var favoriteList: MutableList<Language> = mutableListOf<Language>()
+
     var languageFilterList = ArrayList<Language>()
     // create an inner class with name ViewHolder
     // It takes a view argument, in which pass the generated class of single_item.xml
@@ -48,11 +50,34 @@ class RvAdapter(
                 binding.activityClassname.text = this.classname
                 binding.activityClasscode.text = this.classcode
                 binding.activityTeacher.text = this.teacher
-                binding.activityGpa.text = this.gpa
+                binding.activityGpa.text = "Average Gpa: " + this.gpa
                 binding.activityWiki.text = this.wiki
                 binding.activityMode.text = this.mode
                 binding.activitySemester.text = this.semester
                 binding.activityExtra.text = this.extra
+                if(this.isfav)
+                {
+                    binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                }
+                else
+                {
+                    binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                }
+
+                binding.activityFavoritebutton.setOnClickListener{
+                    if(this.isfav == false){
+                        this.isfav = true
+                        favoriteList.add(this)
+                        binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_solid)
+                        Log.d("fav", "from adapter " +favoriteList.toString())
+                    }
+                    else {
+                        this.isfav = false;
+                        favoriteList.remove(this)
+                        binding.activityFavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
+                        Log.d("fav", "from adapter " +favoriteList.toString())
+                    }
+                }
             }
         }
     }
@@ -65,6 +90,12 @@ class RvAdapter(
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
+                if(MainActivity.isFavOn){
+                    languageFilterList = favoriteList as ArrayList<Language>
+                    val filterResults = FilterResults()
+                    filterResults.values = languageFilterList //here
+                    return filterResults
+                }
                 val charSearch = constraint.toString()
                 val courseApi = RetrofitHelper.getInstance().create(CourseApi::class.java)
                 // launching a new coroutine
@@ -87,7 +118,6 @@ class RvAdapter(
                                     course.instructor, ((26..40).random().toDouble()/10).toString(),
                                     "Content not found", "course.modality", "Spring/Fall", "Project Based"))
                             }
-
                         }
                 }
                 languageFilterList = resultList
