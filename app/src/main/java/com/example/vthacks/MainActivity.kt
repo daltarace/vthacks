@@ -56,8 +56,13 @@ class MainActivity : AppCompatActivity() {
                 binding.allfavoritebutton.setBackgroundResource(R.drawable.ic_heart_regular)
                 Log.d("fav", "from main " +rvAdapter.favoriteList.toString())
             }
-            if(rvAdapter.favoriteList.size != 0 && rvAdapter.favoriteList.size != null) { //don't crash if its null
+            if(rvAdapter.favoriteList.size == 0 ) { //don't crash if its null
+                rvAdapter.filter.filter("")
+            }
+            else
+            {
                 rvAdapter.filter.filter(rvAdapter.favoriteList[0].classname)
+
             }
             //rvAdapter.filter.filter(rvAdapter.favoriteList[1].classname)
         }
